@@ -1,0 +1,274 @@
+/* =========================================
+   GLOBAL RESET
+========================================= */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* stops horizontal scroll */
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: #5c15df;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* =========================================
+   LOGIN PAGE BACKGROUND + LAYOUT
+========================================= */
+.login-page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background: radial-gradient(circle at top, #4f08cc 0%, #6b2cff 40%, #5511d4 100%);
+  background-size: 200% 200%;
+  animation: bgMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove {
+  0% { background-position: 10% 10%; }
+  100% { background-position: 90% 90%; }
+}
+
+/* =========================================
+   WAVE BACKGROUND
+========================================= */
+.wave {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 120vmax;
+  height: 120vmax;
+
+  pointer-events: none;
+  z-index: 0;
+
+  background: radial-gradient(circle at 30% 30%,
+    rgba(200,160,255,0.22) 0%,
+    rgba(180,130,255,0.16) 30%,
+    rgba(160,100,255,0.12) 60%);
+  filter: blur(36px);
+  opacity: 0.75;
+  animation: spinWave 35s linear infinite;
+}
+
+.wave.wave2 {
+  transform: translate(-50%, -50%) scale(1.05);
+  opacity: 0.55;
+  animation-duration: 50s;
+}
+
+.wave.wave3 {
+  transform: translate(-50%, -50%) scale(0.95);
+  opacity: 0.42;
+  animation-duration: 70s;
+}
+
+@keyframes spinWave {
+  from { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+  to   { transform: translate(-50%, -50%) rotate(360deg) scale(1.02); }
+}
+
+/* =========================================
+   LOGIN BOX
+========================================= */
+.login-box {
+  position: relative;
+  width: 380px;
+  max-width: 92%;
+
+  background: rgba(255,255,255,0.12);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+
+  border-radius: 20px;
+  padding: 36px 32px;
+  text-align: center;
+
+  box-shadow: 0 15px 40px rgba(135, 74, 255, 0.2),
+              inset 0 2px 0 rgba(255,255,255,0.04);
+
+  border: 1px solid rgba(255,255,255,0.18);
+  z-index: 30;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(135, 74, 255, 0.25);
+}
+
+.login-title {
+  font-size: 30px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 22px;
+  letter-spacing: 0.5px;
+}
+
+/* =========================================
+   TABS
+========================================= */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 18px;
+}
+
+.tab {
+  background: rgba(255,255,255,0.08);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  color: rgba(255,255,255,0.95);
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.tab:hover { 
+  transform: translateY(-3px) scale(1.05);
+  background: rgba(255,255,255,0.14);
+}
+
+.tab.active {
+  background: linear-gradient(90deg, rgba(132, 52, 218, 0.95), rgba(138,47,255,0.95));
+  box-shadow: 0 10px 25px rgba(135,74,255,0.3);
+  color: #fff;
+}
+
+/* =========================================
+   INPUTS
+========================================= */
+.login-input,
+.input {
+  width: 100%;
+  padding: 14px 16px;
+
+  border-radius: 12px;
+  border: none;
+
+  background: rgba(255,255,255,0.26);
+  color: #16121a;
+  font-size: 15px;
+  font-weight: 500;
+
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.08);
+  margin-bottom: 14px;
+  transition: all 0.2s ease;
+}
+
+.login-input:focus,
+.input:focus {
+  outline: none;
+  background: rgba(255,255,255,0.35);
+  box-shadow: inset 0 2px 8px rgba(255,255,255,0.18);
+}
+
+.login-input::placeholder,
+.input::placeholder {
+  color: rgba(20,8,30,0.38);
+}
+
+.error {
+  color: #ffd6e8;
+  font-size: 13px;
+  margin: -6px 0 10px;
+  font-weight: 500;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+.login-btn {
+  width: 100%;
+  padding: 14px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #7527c8, #8a2fff);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+
+  cursor: pointer;
+  margin-top: 8px;
+
+  transition: all 0.2s ease;
+  box-shadow: 0 10px 30px rgba(138,47,255,0.22);
+}
+
+.login-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(138,47,255,0.28);
+}
+
+/* Google login */
+.google-box {
+  margin-top: 20px;
+  color: rgba(255,255,255,0.9);
+}
+
+.google-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 22px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: white;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.google-btn:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   HEADER FIX
+========================================= */
+header,
+.app-header,
+.nav-bar {
+  width: 100%;
+  background: transparent !important;
+  border: none !important;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   SMALL SCREEN FIXES
+========================================= */
+@media (max-width: 480px) {
+  .login-box {
+    width: 92%;
+    padding: 28px 18px;
+  }
+  .login-title {
+    font-size: 24px;
+  }
+  .tab {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}

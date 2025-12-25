@@ -1,0 +1,79 @@
+.msg-wrapper {
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.msg-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #5a189a;
+}
+
+.msg-card {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+}
+
+.msg-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.msg-table th {
+  text-align: left;
+  padding: 14px;
+  font-size: 15px;
+  color: #5a189a;
+  border-bottom: 2px solid #e6d7ff;
+}
+
+.msg-row:hover {
+  background: #faf5ff;
+  transition: 0.3s ease;
+}
+
+.msg-table td {
+  padding: 14px;
+  vertical-align: top;
+  border-bottom: 1px solid #f1e6ff;
+}
+
+.email-text {
+  font-size: 13px;
+  color: gray;
+}
+
+.msg-text {
+  max-width: 350px;
+  color: #444;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+}
+
+.status-badge.pending {
+  background: #ffb703;
+}
+
+.status-badge.answered {
+  background: #38b000;
+}
+
+.status-badge.closed {
+  background: #6c757d;
+}
+
+.no-msg,
+.loading {
+  font-size: 18px;
+  color: #6a4c93;
+  padding: 20px;
+}
