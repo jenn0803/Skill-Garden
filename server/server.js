@@ -47,14 +47,21 @@ app.use("/certificates", express.static(path.join(__dirname, "certificates")));
 // Middleware
 app.use(
   cors({
-    origin:[ "http://localhost:5173",
-    "https://skill-garden-ebon.vercel.app",
-    ],
+    origin: (origin, callback) => {
+      const allowed = [
+        "http://localhost:5173",
+        "https://skill-garden-ebon.vercel.app",
+      ];
+      if (!origin || allowed.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
 app.use(express.json({ limit: "10mb" }));
 app.use(morgan("dev"));
 
