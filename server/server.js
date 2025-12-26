@@ -51,6 +51,7 @@ app.use(
       const allowed = [
         "http://localhost:5173",
         "https://skill-garden-ebon.vercel.app",
+        "https://skill-garden-n16a7gctq-jenifers-projects-a376936c.vercel.app",
       ];
       if (!origin || allowed.includes(origin)) {
         callback(null, true);
