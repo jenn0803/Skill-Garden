@@ -48,7 +48,7 @@ app.use("/certificates", express.static(path.join(__dirname, "certificates")));
 app.use(
   cors({
     origin:[ "http://localhost:5173",
-    "https://skill-garden-ebon.vercel.app/",
+    "https://skill-garden-ebon.vercel.app",
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
